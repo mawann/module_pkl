@@ -42,7 +42,7 @@
   display: block;
   width: 100%;
   padding: 8px 16px;
-  background-color: #0071b8;
+  background-color: #2c5c52;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -52,7 +52,7 @@
 
 .pkl-perusahaan-table a:hover,
 .pkl-murid-table a:hover {
-  background-color: #004f80;
+  background-color: #1e3f38;
   color: yellow;
 }
 
