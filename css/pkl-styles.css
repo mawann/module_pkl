@@ -36,11 +36,27 @@
   text-align: center;
 }
 
-.pkl-perusahaan-table .jumlah-column a {
+/* Style untuk link yang diubah menjadi button */
+.pkl-perusahaan-table a,
+.pkl-murid-table a {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  background-color: #0071b8;
+  color: white;
+  text-align: center;
   text-decoration: none;
-  color: #0071b3;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
-.pkl-perusahaan-table .jumlah-column a:hover {
-  text-decoration: underline;
+.pkl-perusahaan-table a:hover,
+.pkl-murid-table a:hover {
+  background-color: #004f80;
+}
+
+/* Memastikan sel tabel memiliki padding yang cukup untuk button */
+.pkl-perusahaan-table td,
+.pkl-murid-table td {
+  padding: 4px 8px;
 }
