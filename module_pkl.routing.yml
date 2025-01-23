@@ -1,0 +1,18 @@
+module_pkl.angkatan:
+  path: '/pkl/angkatan/{angkatan}'
+  defaults:
+    _controller: '\Drupal\module_pkl\Controller\PklController::angkatanPage'
+    _title: 'Data Tempat PKL'
+  requirements:
+    _permission: 'access content'
+    angkatan: '\d+'
+
+module_pkl.angkatan_perusahaan:
+  path: '/pkl/angkatan/{angkatan}/perusahaan/{perusahaan}'
+  defaults:
+    _controller: '\Drupal\module_pkl\Controller\PklController::perusahaanPage'
+    _title: 'Data Murid'
+  requirements:
+    _permission: 'access content'
+    angkatan: '\d+'
+    perusahaan: '\d+'

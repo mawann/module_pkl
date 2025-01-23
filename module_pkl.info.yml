@@ -1,0 +1,7 @@
+name: PKL Module
+type: module
+description: 'Module untuk memantau URL PKL dan perusahaan per angkatan'
+package: Custom
+core_version_requirement: ^11
+dependencies:
+  - drupal:path
