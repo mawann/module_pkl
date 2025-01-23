@@ -55,7 +55,8 @@ class PklController extends ControllerBase {
       $query->addExpression('COUNT(m.id)', 'jumlah_murid');
       $query->leftJoin('pkl_murid', 'm', 'p.angkatan = m.angkatan AND p.id = m.id_perusahaan');
       $query->condition('p.angkatan', $angkatan);
-      $query->groupBy('p.id, p.nama, p.angkatan');
+      $query->groupBy('p.id');
+      $query->groupBy('p.nama');
       $query->orderBy('p.nama', 'ASC');
       
       $results = $query->execute();
