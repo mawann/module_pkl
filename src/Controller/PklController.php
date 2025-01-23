@@ -177,7 +177,7 @@ class PklController extends ControllerBase {
       'title' => [
         '#type' => 'html_tag',
         '#tag' => 'p',
-        '#value' => $this->t('Daftar Murid PKL di @company (Angkatan @angkatan)', [
+        '#value' => $this->t('Daftar nama-nama murid yang melakukan PKL di @company (Angkatan @angkatan)', [
           '@company' => $company_name,
           '@angkatan' => $angkatan,
         ]),
