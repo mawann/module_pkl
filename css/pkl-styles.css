@@ -53,6 +53,7 @@
 .pkl-perusahaan-table a:hover,
 .pkl-murid-table a:hover {
   background-color: #004f80;
+  color: yellow;
 }
 
 /* Memastikan sel tabel memiliki padding yang cukup untuk button */
