@@ -98,7 +98,7 @@ class PklController extends ControllerBase {
         '#type' => 'container',
         'title' => [
           '#type' => 'html_tag',
-          '#tag' => 'h2',
+          '#tag' => 'p',
           '#value' => $this->t('Nama-Nama Perusahaan Tempat PKL Angkatan @angkatan', ['@angkatan' => $angkatan]),
         ],
         'table' => [
