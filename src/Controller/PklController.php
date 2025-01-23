@@ -99,7 +99,7 @@ class PklController extends ControllerBase {
         'title' => [
           '#type' => 'html_tag',
           '#tag' => 'p',
-          '#value' => $this->t('Berikut ini adalaha nama-nama perusahaan tempat PKL murid-murid DKV angkatan @angkatan', ['@angkatan' => $angkatan]),
+          '#value' => $this->t('Berikut ini adalah nama-nama perusahaan tempat PKL murid-murid DKV angkatan @angkatan', ['@angkatan' => $angkatan]),
         ],
         'table' => [
           '#theme' => 'table',
