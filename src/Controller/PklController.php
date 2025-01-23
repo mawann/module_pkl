@@ -59,15 +59,8 @@ class PklController extends ControllerBase {
       $query->groupBy('p.nama');
       $query->orderBy('p.nama', 'ASC');
       
-      // Debug: Print the query
-      \Drupal::messenger()->addMessage("SQL Query: " . $query->__toString());
-      
-      $results = $query->execute();
-      $all_results = $results->fetchAll();
-      
-      // Debug: Print number of results
-      \Drupal::messenger()->addMessage("Number of results: " . count($all_results));
-      
+      $results = $query->execute()->fetchAll();
+
       // Build table header
       $header = [
         ['data' => $this->t('No.'), 'class' => ['nomor-column']],
@@ -79,10 +72,7 @@ class PklController extends ControllerBase {
       $rows = [];
       $nomor = 1;
 
-      foreach ($all_results as $row) {
-        // Debug: Print each row
-        \Drupal::messenger()->addMessage("Row data: " . print_r($row, TRUE));
-        
+      foreach ($results as $row) {
         // Create URL for student count link
         $url = Url::fromRoute('module_pkl.angkatan_perusahaan', [
           'angkatan' => $angkatan,
@@ -103,19 +93,13 @@ class PklController extends ControllerBase {
         ];
       }
 
-      // Debug: Print final rows array
-      \Drupal::messenger()->addMessage("Final rows: " . print_r($rows, TRUE));
-
       // Return the render array with table
-      $build = [
+      return [
         '#type' => 'container',
         'title' => [
           '#type' => 'html_tag',
           '#tag' => 'h2',
           '#value' => $this->t('Nama-Nama Perusahaan Tempat PKL Angkatan @angkatan', ['@angkatan' => $angkatan]),
-        ],
-        'debug' => [
-          '#markup' => '<div>Debug: Table should appear below</div>',
         ],
         'table' => [
           '#theme' => 'table',
@@ -131,13 +115,11 @@ class PklController extends ControllerBase {
           'max-age' => 0,
         ],
       ];
-
-      return $build;
     }
     catch (\Exception $e) {
-      \Drupal::messenger()->addError('Error: ' . $e->getMessage());
+      \Drupal::messenger()->addError($this->t('Terjadi kesalahan saat mengambil data.'));
       return [
-        '#markup' => $this->t('Terjadi kesalahan saat mengambil data. @error', ['@error' => $e->getMessage()]),
+        '#markup' => $this->t('Terjadi kesalahan saat mengambil data.'),
       ];
     }
   }
@@ -170,9 +152,6 @@ class PklController extends ControllerBase {
     
     $results = $query->execute();
 
-    // Debug: Print the query and results
-    \Drupal::messenger()->addMessage($query->__toString());
-    
     // Build table header
     $header = [
       ['data' => $this->t('No.'), 'class' => ['nomor-column']],
@@ -185,9 +164,6 @@ class PklController extends ControllerBase {
     $nomor = 1;
 
     foreach ($results as $row) {
-      // Debug: Print each row
-      \Drupal::messenger()->addMessage("Processing row: " . print_r($row, TRUE));
-      
       $rows[] = [
         ['data' => $nomor++, 'class' => ['nomor-column']],
         ['data' => $row->nama, 'class' => ['nama-column']],
