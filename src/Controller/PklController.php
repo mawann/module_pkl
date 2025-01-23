@@ -183,7 +183,7 @@ class PklController extends ControllerBase {
         ]),
       ],
       'table' => [
-        '#type' => 'table',
+        '#theme' => 'table',
         '#header' => $header,
         '#rows' => $rows,
         '#empty' => $this->t('Tidak ada murid yang PKL di perusahaan ini.'),
